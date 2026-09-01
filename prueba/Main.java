@@ -27,6 +27,11 @@ public class Main {
                     System.out.print("Ingrese el tag de la categoría: ");
                     String tagStr = scanner.nextLine().trim();
 
+                    if (categoryStr.isEmpty() || tagStr.isEmpty()) {
+                        System.out.println("Error: El nombre de la categoría y el tag no pueden estar vacíos.");
+                        break;
+                    }
+
                     System.out.print("Ingrese el ID del padre (presione ENTER si no tiene padre): ");
                     String parentInput = scanner.nextLine().trim();
                     Integer parentId = null;

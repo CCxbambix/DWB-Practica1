@@ -11,7 +11,7 @@ public class CategoryService {
 
     public void createCategory(Category newCategory) {
         // Validar que la categoría no sea su propio padre antes de cualquier operación
-        if (newCategory.getParentCategoryId() != null && newCategory.getParentCategoryId() == 0) {
+        if (newCategory.getParentCategoryId() != null && newCategory.getParentCategoryId().equals(globalIdCounter)) {
             System.out.println("Error: Una categoría no puede ser padre de sí misma.");
             return;
         }

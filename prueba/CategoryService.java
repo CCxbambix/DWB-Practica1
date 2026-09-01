@@ -41,13 +41,6 @@ public class CategoryService {
         Integer newId = globalIdCounter++;
         newCategory.setCategoryId(newId);
         
-        // Validación extra: asegurarse de que no intente autoreferenciarse si usara su mismo ID asignado
-        if (newId.equals(newCategory.getParentCategoryId())) {
-            System.out.println("Error: Una categoría no puede ser padre de sí misma.");
-            globalIdCounter--; // revertir ID
-            return;
-        }
-
         categoryMap.put(newId, newCategory);
         System.out.println("Categoría registrada correctamente: " + newCategory);
     }

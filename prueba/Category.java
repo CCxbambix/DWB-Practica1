@@ -7,6 +7,10 @@ public class Category {
     private Integer parentCategoryId;
     private Integer status;
 
+    public Category() {
+        this.status = 1;
+    }
+    
     public Category(String category, String tag, Integer parentCategoryId) {
         this.category = category;
         this.tag = tag;

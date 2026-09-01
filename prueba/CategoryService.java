@@ -32,7 +32,7 @@ public class CategoryService {
         if (newCat.getParentCategoryId() != null) {
             Category parent = categoryMap.get(newCat.getParentCategoryId());
             if (parent == null || parent.getStatus() != 1) {
-                System.out.println("Error: El parentCategoryId especificado no existe o no está activo.");
+                System.out.println("Error: El parentCategoryId especificado no existe o fue eliminado.");
                 return;
             }
         }
@@ -94,6 +94,6 @@ public class CategoryService {
         }
 
         target.setStatus(0);
-        System.out.println("Categoría eliminada con éxito (estatus 0).");
+        System.out.println("Categoría eliminada con éxito.");
     }
 }

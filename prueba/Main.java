@@ -9,7 +9,7 @@ public class Main {
         boolean running = true;
 
         while (running) {
-            System.out.println("\n--- SISTEMA DE GESTIÓN DE CATEGORÍAS ---");
+            System.out.println("\n--- GESTOR DE CATEGORÍAS ---");
             System.out.println("1. Registrar categoría (createCategory)");
             System.out.println("2. Ver categorías activas (getCategories)");
             System.out.println("3. Ver categorías hijas (getChildCategories)");
@@ -27,7 +27,7 @@ public class Main {
                     System.out.print("Ingrese el tag de la categoría: ");
                     String tagStr = scanner.nextLine().trim();
 
-                    System.out.print("Ingrese el ID del padre (presione ENTER si es nulo): ");
+                    System.out.print("Ingrese el ID del padre (presione ENTER si no tiene padre): ");
                     String parentInput = scanner.nextLine().trim();
                     Integer parentId = null;
 
@@ -39,7 +39,7 @@ public class Main {
                         Category newCategory = new Category(categoryStr, tagStr, parentId);
                         service.createCategory(newCategory);
                     } catch (NumberFormatException e) {
-                        System.out.println("Error: El ID del padre debe ser un número entero válido o dejarlo vacío.");
+                        System.out.println("Error: El ID del padre debe ser un número entero válido o vacío.");
                     }
                     break;
 

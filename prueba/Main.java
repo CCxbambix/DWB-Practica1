@@ -29,10 +29,18 @@ public class Main {
 
                     System.out.print("Ingrese el ID del padre (presione ENTER si es nulo): ");
                     String parentInput = scanner.nextLine().trim();
-                    Integer parentId = parentInput.isEmpty() ? null : Integer.parseInt(parentInput);
+                    Integer parentId = null;
 
-                    Category newCategory = new Category(categoryStr, tagStr, parentId);
-                    service.createCategory(newCategory);
+                    try {
+                        if (!parentInput.isEmpty()) {
+                            parentId = Integer.parseInt(parentInput);
+                        }
+                        
+                        Category newCategory = new Category(categoryStr, tagStr, parentId);
+                        service.createCategory(newCategory);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error: El ID del padre debe ser un número entero válido o dejarlo vacío.");
+                    }
                     break;
 
                 case "2":
